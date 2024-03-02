@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"html/template"
 	"os"
-	"strings"
 	"regexp"
+	"strings"
 )
 
 type Item struct {
@@ -15,7 +15,7 @@ type Item struct {
 	Description string   `json:"description"`
 	ImageLinks  []string `json:"imageLinks"`
 	Category    string   `json:"category"`
-	Link	    string   `json:"link"`
+	Link        string   `json:"link"`
 	Index       int
 }
 
@@ -39,7 +39,7 @@ func main() {
 	itemsHTML := generateItemsHTML(items)
 
 	// Read index.html
-	indexHTML, err := os.ReadFile("idk/index.html")
+	indexHTML, err := os.ReadFile("dist/index.html")
 	if err != nil {
 		fmt.Println("Error reading index.html:", err)
 		return
@@ -49,7 +49,7 @@ func main() {
 	newIndexHTML := strings.Replace(string(indexHTML), "<!-- INJECT_TABLE_HERE -->", itemsHTML, 1)
 
 	// Write the updated content back to index.html
-	err = os.WriteFile("idk/index.html", []byte(newIndexHTML), 0644)
+	err = os.WriteFile("dist/index.html", []byte(newIndexHTML), 0644)
 	if err != nil {
 		fmt.Println("Error writing to index.html:", err)
 		return
@@ -58,12 +58,14 @@ func main() {
 	fmt.Println("Items successfully injected into index.html")
 
 	// Create name+price.html for each item
-	for _, item := range items {
-		err := createNamePriceFile("idk/"+sanitizeFileName(item.Name+item.Price)+".html", newIndexHTML, item)
+	for i, item := range items {
+		item.Index = i + 1 // Assuming Index is a field in your item struct
+
+		err := createNamePriceFile(fmt.Sprintf("dist/%d.html", item.Index), newIndexHTML, item)
 		if err != nil {
-			fmt.Printf("Error creating %s.html: %v\n", sanitizeFileName(item.Name+item.Price), err)
+			fmt.Printf("Error creating %d.html: %v\n", item.Index, err)
 		} else {
-			fmt.Printf("%s.html successfully created\n", sanitizeFileName(item.Name+item.Price))
+			fmt.Printf("%d.html successfully created\n", item.Index)
 		}
 	}
 }
@@ -73,7 +75,7 @@ func generateItemsHTML(items []Item) string {
 	itemTemplate := `
 	<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item {{.Category}}">
 		<div class="block2">
-	<a href="product-detail.html">
+	<a href="{{.Index}}.html">
 			<div class="block2-pic hov-img0">
 				<img src="{{index .ImageLinks 0}}">
 </a>
@@ -82,7 +84,7 @@ func generateItemsHTML(items []Item) string {
 
 			<div class="block2-txt flex-w flex-t p-t-14">
 				<div class="block2-txt-child1 flex-col-l">
-					<a href="product-detail.html"
+					<a href="{{.Index}}.html"
 	class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
 						{{.Name}}
 					</a>
@@ -114,7 +116,7 @@ func generateItemsHTML(items []Item) string {
 			fmt.Println("Error executing template:", err)
 			return ""
 		}
-		}
+	}
 
 	return result.String()
 }
@@ -149,8 +151,12 @@ func createNamePriceFile(filename string, newIndexHTML string, item Item) error 
 										</a>
 									</div>
 								</div>
-							</div>
 	{{end}}
+
+								
+
+								
+							</div>
 						</div>
 					</div>
 				</div>
@@ -158,44 +164,56 @@ func createNamePriceFile(filename string, newIndexHTML string, item Item) error 
 				<div class="col-md-6 col-lg-5 p-b-30">
 					<div class="p-r-50 p-t-5 p-lr-0-lg">
 						<h4 class="mtext-105 cl2 js-name-detail p-b-14">
-							{{.Name}}
+	{{.Name}}
 						</h4>
 
 						<span class="mtext-106 cl2">
-							{{.Price}}
+	{{.Price}}
 						</span>
 
 						<p class="stext-102 cl3 p-t-23">
-							{{.Description}}
+	{{.Description}}
 						</p>
 						
 						<!--  -->
 						<div class="p-t-33">
 							<div class="flex-w flex-r-m p-b-10">
 								
+
+								<div class="size-204 respon6-next">
+									
+								</div>
 							</div>
 
 							<div class="flex-w flex-r-m p-b-10">
 								
+
+								<div class="size-204 respon6-next">
+									
+								</div>
 							</div>
 
 							<div class="flex-w flex-r-m p-b-10">
 								<div class="size-204 flex-w flex-m respon6-next">
 									
-									<a href="{{.Link}}">
+									<a href={{.Link}}>
 									<button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
-										Buy Now
-									</button>
-	</a>
+									Buy Now	
+									</button></a>
 								</div>
 							</div>	
 						</div>
 
-					
 						
 					</div>
 				</div>
 			</div>
+
+			
+		</div>
+
+		
+	</section>
 
 `
 	tmpl, err := template.New("name").Parse(nameTemplate)
@@ -213,7 +231,7 @@ func createNamePriceFile(filename string, newIndexHTML string, item Item) error 
 	// Combine header, name content, and footer content
 	finalContent := headerContent + nameContent.String() + footerContent
 
-	// Write to idk/name+price.html
+	// Write to dist/name+price.html
 	err = os.WriteFile(filename, []byte(finalContent), 0644)
 	if err != nil {
 		return err
@@ -227,4 +245,3 @@ func sanitizeFileName(name string) string {
 	invalidChars := regexp.MustCompile(`[^\w\d]+`)
 	return invalidChars.ReplaceAllString(name, "_")
 }
-
