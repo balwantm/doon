@@ -1,7 +1,7 @@
 [
   {
-    "name": "Item 1",
-    "price": "10 Rs",
+    "name": "Russian",
+    "price": "6000 Rs",
     "description": "Hoodie",
     "imageLinks": 
       "https://themewagon.github.io/cozastore/images/product-13.jpg", 
@@ -9,9 +9,9 @@
     "link": "https://www.google.com"
   },
 	{
-	"name": "Item 2",
-	"price": "20 Rs",
-	"description": "zipper",
+	"name": "Brunette",
+	"price": "8000 Rs",
+	"description": "tshirt",
 	"imageLinks": "https://themewagon.github.io/cozastore/images/product-10.jpg",
 	
 	"category": "zipper",
