@@ -72,7 +72,7 @@ func main() {
 func generateItemsHTML(items []Item) string {
 	// Define HTML template for the items
 	itemTemplate := `
-	<div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col {{.Category}}">
+	<div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col idk {{.Category}}">
 				<a href="{{.Index}}.html">
 					<img class="hover:grow hover:shadow-lg"
 						src="{{.ImageLink}}">

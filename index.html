@@ -441,7 +441,7 @@ body {
 		<script>
     function filterCategory(category) {
         // Hide all product items
-        const productItems = document.querySelectorAll('.flex.flex-col');
+        const productItems = document.querySelectorAll('.flex.flex-col.idk');
         productItems.forEach(item => {
             item.style.display = 'none';
         });
@@ -455,7 +455,7 @@ body {
 
     function resetFilter() {
         // Reset by showing all product items
-        const productItems = document.querySelectorAll('.flex.flex-col');
+        const productItems = document.querySelectorAll('.flex.flex-col.idk');
         productItems.forEach(item => {
             item.style.display = 'block';
         });
