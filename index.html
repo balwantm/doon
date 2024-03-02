@@ -70,10 +70,11 @@
 			text-align: center;
 			z-index: 10;
 		}
+
 		.logo {
-		font-family: 'Caveat Brush', cursive;
-		font-weight: 400;
-		font-style: normal;
+			font-family: 'Caveat Brush', cursive;
+			font-weight: 400;
+			font-style: normal;
 		}
 	</style>
 
@@ -108,20 +109,23 @@
 			</div>
 
 		</div>
-			<div class="w-full container mx-auto flex items-center justify-between mt-0 px-6 py-3">
-    <div class="order-2 md:order-3 flex items-center" id="nav-content">
-        <div class="flex items-center space-x-9">
-            <a href="#store" class="text-gray-700 hover:text-gray-900" onclick="filterCategory('tshirt'); return false;">T-Shirt</a>
-<a href="#store" class="text-gray-700 hover:text-gray-900" onclick="filterCategory('jacket'); return false;">Jacket</a>
-<a href="#store" class="text-gray-700 hover:text-gray-900" onclick="filterCategory('zipper'); return false;">Zipper</a>
+		<div class="w-full container mx-auto flex items-center justify-between mt-0 px-6 py-3">
+			<div class="order-2 md:order-3 flex items-center" id="nav-content">
+				<div class="flex items-center space-x-9">
+					<a href="#store" class="text-gray-700 hover:text-gray-900"
+						onclick="filterCategory('tshirt'); return false;">T-Shirt</a>
+					<a href="#store" class="text-gray-700 hover:text-gray-900"
+						onclick="filterCategory('jacket'); return false;">Jacket</a>
+					<a href="#store" class="text-gray-700 hover:text-gray-900"
+						onclick="filterCategory('zipper'); return false;">Zipper</a>
 
-            <!-- Add more categories as needed -->
-        </div>
-    </div>
-</div>
+					<!-- Add more categories as needed -->
+				</div>
+			</div>
+		</div>
 
 	</header>
-		
+
 
 
 
@@ -241,12 +245,14 @@
 
 			<div class="flex px-4 hidden" id="filter">
 				<div class="flex-grow">
-					<button class="mr-2 px-4 py-2 text-gray-700 rounded"
-						onclick="filterCategory('tshirt')">T-Shirts</button>
-					<button class="mr-2 px-4 py-2 text-gray-700 rounded"
-						onclick="filterCategory('zipper')">Zipper</button>
-					<button class="mr-2 px-4 py-2 text-gray-700 rounded"
-						onclick="filterCategory('jacket')">Jacket</button>
+
+					<a href="#" class="text-gray-700 hover:text-gray-900"
+						onclick="filterAndScroll('tshirt');">T-Shirt</a>
+					<a href="#" class="text-gray-700 hover:text-gray-900"
+						onclick="filterAndScroll('jacket');">Jacket</a>
+					<a href="#" class="text-gray-700 hover:text-gray-900"
+						onclick="filterAndScroll('zipper');">Zipper</a>
+
 				</div>
 				<button class="px-4 py-2 text-gray-700 rounded" onclick="resetFilter()">Reset</button>
 			</div>
@@ -270,8 +276,7 @@
 			<div class="container flex px-3 py-8 ">
 				<div class="w-full mx-auto flex flex-wrap">
 					<!-- First Part -->
-					<div
-						class="sm:flex-row flex flex-col w-full sm:space-x-11">
+					<div class="sm:flex-row flex flex-col w-full sm:space-x-11">
 						<!-- First Column -->
 						<div class="px-3 md:px-0">
 							<svg class="matrixIcon" width="57" height="56"
@@ -416,7 +421,7 @@
 						</div>
 					</div>
 
-					
+
 
 					<!-- Second Part -->
 					<div class="flex w-full my-8 ">
@@ -467,7 +472,7 @@
 	<script>
 		function filterCategory(category) {
 			// Hide all product items
-			const productItems = document.querySelectorAll('.flex.flex-col');
+			const productItems = document.querySelectorAll('.flex.flex-col.idk');
 			productItems.forEach(item => {
 				item.style.display = 'none';
 			});
@@ -481,11 +486,23 @@
 
 		function resetFilter() {
 			// Reset by showing all product items
-			const productItems = document.querySelectorAll('.flex.flex-col');
+			const productItems = document.querySelectorAll('.flex.flex-col.idk');
 			productItems.forEach(item => {
 				item.style.display = 'block';
 			});
 		}
+
+		function filterAndScroll(category) {
+			// Call your filterCategory function
+			filterCategory(category);
+
+			// Scroll to the #store div
+			document.getElementById('store').scrollIntoView({behavior: 'smooth'});
+
+			// Prevent the default behavior of the anchor tag
+			return false;
+		}
+
 		const filterBtn = document.getElementById('filterbtn');
 		const filterDiv = document.getElementById('filter');
 		filterBtn.addEventListener('click', function () {
