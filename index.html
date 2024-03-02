@@ -426,7 +426,8 @@
 					<!-- Second Part -->
 					<div class="flex w-full my-8 ">
 						<div class="px-3 md:px-0">
-							<h3 class="font-bold text-gray-900 text-xl">About Us</h3>
+								<a href="/about">
+							<h3 class="font-bold text-gray-900 text-xl">About Us</h3></a>
 						</div>
 					</div>
 
@@ -496,11 +497,11 @@
 			// Call your filterCategory function
 			filterCategory(category);
 
-			// Scroll to the #store div
-			document.getElementById('store').scrollIntoView({behavior: 'smooth'});
+			const storeDiv = document.getElementById('store');
+    storeDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-			// Prevent the default behavior of the anchor tag
-			return false;
+    // Prevent the default behavior of the anchor tag
+    return false;
 		}
 
 		const filterBtn = document.getElementById('filterbtn');
