@@ -10,12 +10,12 @@ import (
 )
 
 type Item struct {
-	Name        string   `json:"name"`
-	Price       string   `json:"price"`
-	Description string   `json:"description"`
-	ImageLinks  []string `json:"imageLinks"`
-	Category    string   `json:"category"`
-	Link        string   `json:"link"`
+	Name        string `json:"name"`
+	Price       string `json:"price"`
+	Description string `json:"description"`
+	ImageLink   string `json:"imageLinks"`
+	Category    string `json:"category"`
+	Link        string `json:"link"`
 	Index       int
 }
 
@@ -73,29 +73,16 @@ func main() {
 func generateItemsHTML(items []Item) string {
 	// Define HTML template for the items
 	itemTemplate := `
-	<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item {{.Category}}">
-		<div class="block2">
-	<a href="{{.Index}}.html">
-			<div class="block2-pic hov-img0">
-				<img src="{{index .ImageLinks 0}}">
-</a>
-				
+	<div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
+				<a href="{{.Index}}.html">
+					<img class="hover:grow hover:shadow-lg"
+						src="{{.ImageLink}}">
+					<div class="pt-3 flex items-center justify-between">
+						<p class="">{{.Name}}</p>
+											</div>
+					<p class="pt-1 text-gray-900">{{.Price}}</p>
+				</a>
 			</div>
-
-			<div class="block2-txt flex-w flex-t p-t-14">
-				<div class="block2-txt-child1 flex-col-l">
-					<a href="{{.Index}}.html"
-	class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-						{{.Name}}
-					</a>
-
-					<span class="stext-105 cl3">
-						{{.Price}}
-					</span>
-				</div>
-			</div>
-		</div>
-	</div>
 	`
 
 	// Create a template from the HTML
@@ -131,89 +118,63 @@ func createNamePriceFile(filename string, newIndexHTML string, item Item) error 
 	footerContent := newIndexHTML[footerStartIndex:]
 
 	// Create a template for the item's name
-	nameTemplate := `<section class="sec-product-detail bg0 p-t-65 p-b-60">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-6 col-lg-7 p-b-30">
-					<div class="p-l-25 p-r-30 p-lr-0-lg">
-						<div class="wrap-slick3 flex-sb flex-w">
-							<div class="wrap-slick3-dots"></div>
-							<div class="wrap-slick3-arrows flex-sb-m flex-w"></div>
-
-							<div class="slick3 gallery-lb">
-	{{range .ImageLinks}}
-								<div class="item-slick3" data-thumb="{{.}}">
-									<div class="wrap-pic-w pos-relative">
-										<img src="{{.}}" alt="IMG-PRODUCT">
-
-										<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="{{.}}">
-											<i class="fa fa-expand"></i>
-										</a>
-									</div>
-								</div>
-	{{end}}
-
-								
-
-								
-							</div>
-						</div>
-					</div>
-				</div>
-					
-				<div class="col-md-6 col-lg-5 p-b-30">
-					<div class="p-r-50 p-t-5 p-lr-0-lg">
-						<h4 class="mtext-105 cl2 js-name-detail p-b-14">
-	{{.Name}}
-						</h4>
-
-						<span class="mtext-106 cl2">
-	{{.Price}}
-						</span>
-
-						<p class="stext-102 cl3 p-t-23">
-	{{.Description}}
-						</p>
+	nameTemplate := `
+<main class="w-full flex flex-col lg:flex-row">
+				<!-- Gallery -->
+				<section
+					class="h-fit flex-col gap-8 mt-4 sm:flex sm:flex-row sm:gap-4 sm:h-full sm:mt-6 sm:mx-2 md:gap-8 md:mx-4 lg:flex-col lg:mx-0 lg:mt-36"
+				>
+					<picture
+						class="relative flex items-center bg-orange sm:bg-transparent"
+					>
 						
-						<!--  -->
-						<div class="p-t-33">
-							<div class="flex-w flex-r-m p-b-10">
-								
-
-								<div class="size-204 respon6-next">
-									
-								</div>
-							</div>
-
-							<div class="flex-w flex-r-m p-b-10">
-								
-
-								<div class="size-204 respon6-next">
-									
-								</div>
-							</div>
-
-							<div class="flex-w flex-r-m p-b-10">
-								<div class="size-204 flex-w flex-m respon6-next">
-									
-									<a href={{.Link}}>
-									<button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
-									Buy Now	
-									</button></a>
-								</div>
-							</div>	
-						</div>
-
+						<img
+							src="{{.ImageLink}}"
+							alt="sneaker"
+							class="block sm:rounded-xl xl:w-[70%] xl:rounded-xl m-auto pointer-events-none transition duration-300 lg:w-3/4 lg:pointer-events-auto lg:cursor-pointer lg:hover:shadow-xl"
+							id="hero"
+						/>
 						
+					</picture>
+
+									</section>
+
+				<!-- Text -->
+				<section
+					class="w-full p-6 lg:mt-36 lg:pr-20 lg:py-10 2xl:pr-40 2xl:mt-40"
+				>
+										<h1
+						class="text-very-dark m-4 font-bold text-3xl lg:text-4xl"
+					>
+	{{.Name}}	
+					</h1>
+					<p class="text-dark-grayish mb-6 text-base sm:text-lg">
+	{{.Description}}	
+					</p>
+
+					<div
+						class="flex items-center justify-between mb-6 sm:flex-col sm:items-start"
+					>
+						<div class="flex items-center gap-4">
+							<h3
+								class="text-very-dark font-bold text-3xl inline-block"
+							>
+	{{.Price}}	
+							</h3>
+													</div>
+											</div>
+<a href="{{.Link}}">
+											<button
+							class="w-full h-10 bg-orange py-2 flex items-center justify-center gap-4 text-xl rounded-lg font-bold text-light shadow-md shadow-orange hover:brightness-125 transition select-none"
+							id="add-cart"
+						>
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart2" viewBox="0 0 16 16">
+  <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l1.25 5h8.22l1.25-5zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0"/>
+</svg>						Buy Now	
+						</button></a>
 					</div>
-				</div>
-			</div>
-
-			
-		</div>
-
-		
-	</section>
+				</section>
+			</main>
 
 `
 	tmpl, err := template.New("name").Parse(nameTemplate)
