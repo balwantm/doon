@@ -471,44 +471,14 @@
 		</div>
 	</footer>
 	<script>
-		function filterCategory(category) {
-			// Hide all product items
-			const productItems = document.querySelectorAll('.flex.flex-col.idk');
-			productItems.forEach(item => {
-				item.style.display = 'none';
-			});
-
-			// Show only items with the selected category
-			const selectedCategoryItems = document.querySelectorAll(`.${category}`);
-			selectedCategoryItems.forEach(item => {
-				item.style.display = 'block';
-			});
-		}
-
-		function resetFilter() {
-			// Reset by showing all product items
-			const productItems = document.querySelectorAll('.flex.flex-col.idk');
-			productItems.forEach(item => {
-				item.style.display = 'block';
-			});
-		}
-
-		function filterAndScroll(category) {
-			// Call your filterCategory function
-			filterCategory(category);
-
-			const storeDiv = document.getElementById('store');
-    storeDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-    // Prevent the default behavior of the anchor tag
-    return false;
-		}
-
 		const filterBtn = document.getElementById('filterbtn');
-		const filterDiv = document.getElementById('filter');
-		filterBtn.addEventListener('click', function () {
-			filterDiv.classList.toggle('hidden');
-		});
+        const filterDiv = document.getElementById('filter');
+
+        // Add a click event listener to the button
+        filterBtn.addEventListener('click', function() {
+            // Remove the 'hidden' class from the filter div
+            filterDiv.classList.toggle('hidden');
+        });
 	</script>
 
 </body>
