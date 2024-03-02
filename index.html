@@ -5,79 +5,78 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="style.css">
-		<title>Doon Merchandise</title>
+	<title>Doon Merchandise</title>
 	<style>
-	/* Fonts */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
-			@import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap');
+		/* Fonts */
+		@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+		@import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap');
 
 
-/* Global styles */
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+		/* Global styles */
+		*,
+		*::before,
+		*::after {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
 
-body {
-  font-family: "Poppins", sans-serif;
-  color: #252525;
-}
+		body {
+			font-family: "Poppins", sans-serif;
+			color: #252525;
+		}
 
-/* Menu toggle */
-#menu-toggle:checked + #menu {
-  display: block;
-}
+		/* Menu toggle */
+		#menu-toggle:checked+#menu {
+			display: block;
+		}
 
-/* Image hover */
-.hover\:grow {
-  transition: all 0.3s;
-  transform: scale(1);
-  aspect-ratio: 1 !important;
-  object-fit: cover;
-}
+		/* Image hover */
+		.hover\:grow {
+			transition: all 0.3s;
+			transform: scale(1);
+			aspect-ratio: 1 !important;
+			object-fit: cover;
+		}
 
-.hover\:grow:hover {
-  transform: scale(1.02);
-}
+		.hover\:grow:hover {
+			transform: scale(1.02);
+		}
 
-/* Carousel */
-.carousel-open:checked + .carousel-item {
-  position: static;
-  opacity: 100;
-}
+		/* Carousel */
+		.carousel-open:checked+.carousel-item {
+			position: static;
+			opacity: 100;
+		}
 
-.carousel-item {
-  transition: opacity 0.6s ease-out;
-}
+		.carousel-item {
+			transition: opacity 0.6s ease-out;
+		}
 
-#carousel-1:checked ~ .control-1,
-#carousel-2:checked ~ .control-2,
-#carousel-3:checked ~ .control-3 {
-  display: block;
-}
+		#carousel-1:checked~.control-1,
+		#carousel-2:checked~.control-2,
+		#carousel-3:checked~.control-3 {
+			display: block;
+		}
 
-.carousel-indicators {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  position: absolute;
-  bottom: 2%;
-  left: 0;
-  right: 0;
-  text-align: center;
-  z-index: 10;
-}
-	.logo {
+		.carousel-indicators {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			position: absolute;
+			bottom: 2%;
+			left: 0;
+			right: 0;
+			text-align: center;
+			z-index: 10;
+		}
+
+		.logo {
 			font-family: 'Caveat Brush', cursive;
 			font-weight: 400;
 			font-style: normal;
 		}
-
-
-	</style>	
+	</style>
 
 </head>
 
@@ -87,13 +86,13 @@ body {
 		<div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-6 py-3">
 
 			<label for="menu-toggle" class="cursor-pointer md:hidden block">
-			
+
 			</label>
 			<input class="hidden" type="checkbox" id="menu-toggle" />
 
 			<div class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
 				<nav>
-					
+
 				</nav>
 			</div>
 
@@ -106,26 +105,29 @@ body {
 
 			<div class="order-2 md:order-3 flex items-center" id="nav-content">
 
-			
-				</div>
 
 			</div>
-			 <hr class=" h-px border-0 bg-gray-300"
-      />
+
+		</div>
+		<hr class=" h-px border-0 bg-gray-300" />
+
 		
-<div class="w-full container mx-auto flex items-center justify-between mt-0 px-6 py-3">
-    <div class="order-2 md:order-3 flex items-center" id="nav-content">
-        <!-- New section for categories -->
-        <div class="flex items-center space-x-4">
-            <a href="#" class="text-gray-700 hover:text-gray-900" onclick="scrollAndFilter('tshirt')">T-shirts</a>
-<a href="#" class="text-gray-700 hover:text-gray-900" onclick="scrollAndFilter('jacket')">Jackets</a>
-<a href="#" class="text-gray-700 hover:text-gray-900" onclick="scrollAndFilter('zipper')">Zipper</a>
-            <!-- Add more categories as needed -->
-        </div>
-    </div>
-</div>
 
 	</header>
+		<div class="w-full container mx-auto flex items-center justify-between mt-0 px-6 py-3">
+			<div class="order-2 md:order-3 flex items-center" id="nav-content">
+				<!-- New section for categories -->
+				<div class="flex items-center space-x-4">
+					<a href="#" class="text-gray-700 hover:text-gray-900"
+						onclick="scrollAndFilter('tshirt')">T-shirts</a>
+					<a href="#" class="text-gray-700 hover:text-gray-900"
+						onclick="scrollAndFilter('jacket')">Jackets</a>
+					<a href="#" class="text-gray-700 hover:text-gray-900"
+						onclick="scrollAndFilter('zipper')">Zipper</a>
+					<!-- Add more categories as needed -->
+				</div>
+			</div>
+		</div>
 
 	<div class="carousel relative container mx-auto" style="max-width:1600px;">
 		<div class="carousel-inner relative overflow-hidden w-full">
@@ -141,7 +143,7 @@ body {
 							class="flex flex-col w-full lg:w-1/2 md:ml-16 items-center md:items-start px-6 tracking-wide">
 							<p class="font-bold text-2xl my-4">Stripy Zig Zag Jigsaw Pillow
 								and Duvet Set</p>
-													</div>
+						</div>
 					</div>
 
 				</div>
@@ -162,7 +164,7 @@ body {
 						<div
 							class="flex flex-col w-full lg:w-1/2 md:ml-16 items-center md:items-start px-6 tracking-wide">
 							<p class="font-bold text-2xl my-4">Real Bamboo Wall Clock</p>
-							
+
 						</div>
 					</div>
 
@@ -185,7 +187,7 @@ body {
 							class="flex flex-col w-full lg:w-1/2 md:ml-16 items-center md:items-start px-6 tracking-wide">
 							<p class="font-bold text-2xl my-4">Brown and blue hardbound book
 							</p>
-							
+
 						</div>
 					</div>
 
@@ -228,34 +230,40 @@ body {
 						Store
 					</a>
 
-					<div class="flex items-center" id="store-nav-content">       <button id="filterbtn">     <svg class="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-              <path d="M7 11H17V13H7zM4 7H20V9H4zM10 15H14V17H10z" />
-            </svg>
-          </button>
+					<div class="flex items-center" id="store-nav-content"> <button id="filterbtn">
+							<svg class="fill-current hover:text-black"
+								xmlns="http://www.w3.org/2000/svg" width="24"
+								height="24" viewBox="0 0 24 24">
+								<path d="M7 11H17V13H7zM4 7H20V9H4zM10 15H14V17H10z" />
+							</svg>
+						</button>
 
-          </div>
-            </div>
-        </nav>
-
-        <div class="flex px-4 hidden" id="filter">
-    <div class="flex-grow">
-        <button class="mr-2 px-4 py-2 text-gray-700 rounded" onclick="filterCategory('tshirt')">T-Shirts</button>
-        <button class="mr-2 px-4 py-2 text-gray-700 rounded" onclick="filterCategory('zipper')">Zipper</button>
-        <button class="mr-2 px-4 py-2 text-gray-700 rounded" onclick="filterCategory('jacket')">Jacket</button>
-    </div>
-    <button class="px-4 py-2 text-gray-700 rounded" onclick="resetFilter()">Reset</button>
-</div>
-
- <div class="flex flex-wrap mt-4" id="product-container">
-			<!-- INJECT_TABLE_HERE -->
+					</div>
 				</div>
+			</nav>
+
+			<div class="flex px-4 hidden" id="filter">
+				<div class="flex-grow">
+					<button class="mr-2 px-4 py-2 text-gray-700 rounded"
+						onclick="filterCategory('tshirt')">T-Shirts</button>
+					<button class="mr-2 px-4 py-2 text-gray-700 rounded"
+						onclick="filterCategory('zipper')">Zipper</button>
+					<button class="mr-2 px-4 py-2 text-gray-700 rounded"
+						onclick="filterCategory('jacket')">Jacket</button>
+				</div>
+				<button class="px-4 py-2 text-gray-700 rounded" onclick="resetFilter()">Reset</button>
 			</div>
+
+			<div class="flex flex-wrap mt-4" id="product-container">
+				<!-- INJECT_TABLE_HERE -->
+			</div>
+		</div>
 
 	</section>
 
 	<section class="bg-white py-8">
 
-		
+
 
 	</section>
 
@@ -264,8 +272,7 @@ body {
 			<div class="container flex px-3 py-8 ">
 				<div class="w-full mx-auto flex flex-wrap">
 					<!-- First Part -->
-					<div
-						class="sm:flex-row flex flex-col w-full sm:space-x-11">
+					<div class="sm:flex-row flex flex-col w-full sm:space-x-11">
 						<!-- First Column -->
 						<div class="px-3 md:px-0">
 							<svg class="matrixIcon" width="57" height="56"
@@ -415,8 +422,11 @@ body {
 					<!-- Second Part -->
 					<div class="flex w-full my-8 ">
 						<div class="px-3 md:px-0">
-						<a href="/about">
-							<h3 class="font-bold text-gray-900 text-xl">About Us</h3></a>						</div>
+							<a href="/about">
+								<h3 class="font-bold text-gray-900 text-xl">About Us
+								</h3>
+							</a>
+						</div>
 					</div>
 
 
@@ -458,42 +468,42 @@ body {
 			</div>
 		</div>
 	</footer>
-		<script>
-    function filterCategory(category) {
-        // Hide all product items
-        const productItems = document.querySelectorAll('.flex.flex-col.idk');
-        productItems.forEach(item => {
-            item.style.display = 'none';
-        });
+	<script>
+		function filterCategory(category) {
+			// Hide all product items
+			const productItems = document.querySelectorAll('.flex.flex-col.idk');
+			productItems.forEach(item => {
+				item.style.display = 'none';
+			});
 
-        // Show only items with the selected category
-        const selectedCategoryItems = document.querySelectorAll(`.${category}`);
-        selectedCategoryItems.forEach(item => {
-            item.style.display = 'block';
-        });
-    }
-    function scrollAndFilter(category) {
-    // Scroll to the 'store' div
-    const storeDiv = document.getElementById('store');
-    storeDiv.scrollIntoView({ behavior: 'smooth' });
+			// Show only items with the selected category
+			const selectedCategoryItems = document.querySelectorAll(`.${category}`);
+			selectedCategoryItems.forEach(item => {
+				item.style.display = 'block';
+			});
+		}
+		function scrollAndFilter(category) {
+			// Scroll to the 'store' div
+			const storeDiv = document.getElementById('store');
+			storeDiv.scrollIntoView({behavior: 'smooth'});
 
-    // Perform the filterCategory function
-    filterCategory(category);
-}
+			// Perform the filterCategory function
+			filterCategory(category);
+		}
 
-    function resetFilter() {
-        // Reset by showing all product items
-        const productItems = document.querySelectorAll('.flex.flex-col.idk');
-        productItems.forEach(item => {
-            item.style.display = 'block';
-        });
-    }
-    const filterBtn = document.getElementById('filterbtn');
-        const filterDiv = document.getElementById('filter');
-        filterBtn.addEventListener('click', function() {
-            filterDiv.classList.toggle('hidden');
-        });
-</script>
+		function resetFilter() {
+			// Reset by showing all product items
+			const productItems = document.querySelectorAll('.flex.flex-col.idk');
+			productItems.forEach(item => {
+				item.style.display = 'block';
+			});
+		}
+		const filterBtn = document.getElementById('filterbtn');
+		const filterDiv = document.getElementById('filter');
+		filterBtn.addEventListener('click', function () {
+			filterDiv.classList.toggle('hidden');
+		});
+	</script>
 
 </body>
 
