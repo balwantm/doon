@@ -1,0 +1,33 @@
+[
+  {
+    "name": "Item 1",
+    "price": "10 Rs",
+    "description": "Hoodie",
+    "imageLinks": [
+      "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png", "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+    ],
+    "category": "category 1",
+    "link": "https://www.google.com"
+  },
+	{
+	"name": "Item 2",
+	"price": "20 Rs",
+	"description": "Zipper",
+	"imageLinks": [
+		"https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png", "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+	],
+	"category": "category 2",
+	"link": "https://www.yay.com"
+	},
+	{
+	"name": "Lightweight Jacket",
+	"price": "$58.79",
+	"description": "Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus ligula. Mauris consequat ornare feugiat.",
+	"imageLinks": [
+		"https://themewagon.github.io/cozastore/images/product-detail-01.jpg", "https://themewagon.github.io/cozastore/images/product-detail-02.jpg", "https://themewagon.github.io/cozastore/images/product-detail-02.jpg"
+	],
+	"category": "Jackets",
+	"link": "https://www.yay.com"
+	}
+]
+
