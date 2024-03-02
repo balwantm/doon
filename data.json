@@ -4,18 +4,17 @@
     "price": "10 Rs",
     "description": "Hoodie",
     "imageLinks": 
-      "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png", 
-    
-    "category": "category 1",
+      "https://themewagon.github.io/cozastore/images/product-13.jpg", 
+    "category": "tshirt",
     "link": "https://www.google.com"
   },
 	{
 	"name": "Item 2",
 	"price": "20 Rs",
-	"description": "Zipper",
-	"imageLinks": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
+	"description": "zipper",
+	"imageLinks": "https://themewagon.github.io/cozastore/images/product-10.jpg",
 	
-	"category": "category 2",
+	"category": "zipper",
 	"link": "https://www.yay.com"
 	},
 	{
@@ -23,7 +22,7 @@
 	"price": "$58.79",
 	"description": "Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus ligula. Mauris consequat ornare feugiat.",
 	"imageLinks": "https://themewagon.github.io/cozastore/images/product-detail-02.jpg",
-	"category": "Jackets",
+	"category": "jacket",
 	"link": "https://www.yay.com"
 	}
 ]
