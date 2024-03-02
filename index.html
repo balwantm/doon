@@ -98,7 +98,7 @@ body {
 			</div>
 
 			<div class="order-1 md:order-2">
-				<a class="flex items-center tracking-wide no-underline hover:no-underline font-bold  text-xl logo"
+				<a class="flex items-center tracking-wide no-underline hover:no-underline font-bold  text-3xl logo"
 					href="/">
 					Doon
 				</a>
@@ -110,7 +110,19 @@ body {
 				</div>
 
 			</div>
-		</div>
+		
+<div class="w-full container mx-auto flex items-center justify-between mt-0 px-6 py-3">
+    <div class="order-2 md:order-3 flex items-center" id="nav-content">
+        <!-- New section for categories -->
+        <div class="flex items-center space-x-4">
+            <a href="#" class="text-gray-700 hover:text-gray-900" onclick="scrollAndFilter('tshirt')">T-shirts</a>
+<a href="#" class="text-gray-700 hover:text-gray-900" onclick="scrollAndFilter('jacket')">Jackets</a>
+<a href="#" class="text-gray-700 hover:text-gray-900" onclick="scrollAndFilter('zipper')">Zipper</a>
+            <!-- Add more categories as needed -->
+        </div>
+    </div>
+</div>
+
 	</header>
 
 	<div class="carousel relative container mx-auto" style="max-width:1600px;">
@@ -458,6 +470,14 @@ body {
             item.style.display = 'block';
         });
     }
+    function scrollAndFilter(category) {
+    // Scroll to the 'store' div
+    const storeDiv = document.getElementById('store');
+    storeDiv.scrollIntoView({ behavior: 'smooth' });
+
+    // Perform the filterCategory function
+    filterCategory(category);
+}
 
     function resetFilter() {
         // Reset by showing all product items
