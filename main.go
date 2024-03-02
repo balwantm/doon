@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"html/template"
 	"os"
-	"regexp"
 	"strings"
 )
 
@@ -201,8 +200,4 @@ func createNamePriceFile(filename string, newIndexHTML string, item Item) error 
 	return nil
 }
 
-// sanitizeFileName replaces spaces with underscores and removes other invalid characters from a filename.
-func sanitizeFileName(name string) string {
-	invalidChars := regexp.MustCompile(`[^\w\d]+`)
-	return invalidChars.ReplaceAllString(name, "_")
-}
+
