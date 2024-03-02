@@ -24,6 +24,15 @@
 	"imageLinks": "https://themewagon.github.io/cozastore/images/product-detail-02.jpg",
 	"category": "jacket",
 	"link": "https://www.yay.com"
-	}
+	},
+	{
+		"name": "IIT Patna Black TShirt Design 1",
+		"price": "349 Rs",
+		"description": "Hbackwdhg",
+		"imageLinks": 
+		  "https://drive.google.com/file/d/1lNN4tvrJbfSEFyoNbGU9oBbW5CpV_YM1/view?usp=drive_link", 
+		"category": "iitp",
+		"link": "https://gform.com"
+	  }
 ]
 
